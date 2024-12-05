@@ -1,0 +1,183 @@
+body {
+  background-color: black;
+}
+
+.carousel-inner > .item {
+  height: 100vh;
+}
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-height: 800px;
+  width: auto;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-top: 50%; 
+  height: 0;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .map-container {
+    padding-top: 100%;
+  }
+}
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-caption {
+    right: 20%;
+    left: 20%;
+    padding-bottom: 30px;
+    bottom: 50px;
+  }
+  .carousel-caption h1 {
+    font-size: 1.3em;
+  }
+}
+
+.masthead {
+  background: url("../images/home/logohorizon2.jpg") no-repeat center scroll;
+  -webkit-background-size: 90%;
+  -moz-background-size: 90%;
+  -o-background-size: 90%;
+  background-size: 90%;
+}
+
+.download-section {
+  background: #464a4e;
+}
+
+.container .home {
+  margin-top: 50%;
+}
+
+.thumbnail {
+  position: relative;
+  padding: 0px;
+  margin-bottom: 20px;
+}
+
+.download-section .thumbnail img,
+.content-section .thumbnail img {
+  width: 90%;
+  height: 395px;
+  vertical-align: inherit;
+}
+.thumbnail a.btn {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.thumbnail a.btn-default {
+  color: #42dca3;
+}
+
+.thumbnail a.btn-default:hover {
+  color: black;
+}
+
+.fasilitas h2 {
+  margin-bottom: 75px;
+}
+
+.fasilitas .card {
+  background-color: transparent;
+  margin-bottom: 50px;
+  display: block;
+}
+
+.fasilitas .card-title {
+  color: #42dca3;
+}
+
+.fasilitas .card-img-top {
+  width: 22%;
+}
+
+#contact {
+  font-family: Cabin, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+
+#contact legend {
+  border-bottom: 1px solid;
+  color: #42dca3;
+}
+
+#contact address i {
+  margin-right: 5px;
+}
+
+#contact .kritiksaran {
+  margin-bottom: 50px;
+}
+
+#contact h2 {
+  margin-bottom: 10px;
+}
+
+#availability .card {
+  background-color: transparent;
+  margin: 10px;
+  display: block;
+  border: 1px solid rgb(140, 140, 140);
+  border-radius: 0.25rem;
+  padding: 10px;
+}
+
+#availability .fa-ban {
+  color: red;
+}
+
+#availability h6 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#availability h2 {
+  margin-bottom: 75px;
+}
+
+#availability .card-title {
+  color: #42dca3;
+}
+
+.dropdown-menu {
+  background-color: #000;
+}
+
+#royalnet .card {
+  border: 1px solid rgba(70, 74, 78, 0.125);
+}
+
+#royalnet .spesifikasi ul {
+  text-align: left;
+  list-style-type: square;
+  font-family: Cabin, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@media (max-width: 992px) {
+  .content-section {
+    padding-top: 80px;
+  }
+}
