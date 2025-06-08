@@ -18,8 +18,11 @@ class PlaystationAvailability {
             { id: 14, name: 'Playstation 5', status: 'available', endTime: null, jam: null }
         ];
         this.eventsBound = false;
+        // URL Netlify Functions
+        this.apiUrl = 'https://resplendent-platypus-9b93f8.netlify.app/.netlify/functions';
         this.init();
         this.startAutoRefresh();
+        this.loadFromServer(); // Load dari server saat init
     }
 
     init() {
@@ -161,6 +164,52 @@ class PlaystationAvailability {
         document.addEventListener('click', this.clickHandler);
     }
 
+    async saveToServer() {
+        try {
+            const response = await fetch(`${this.apiUrl}/save-data`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    data: this.playstations,
+                    timestamp: new Date().toISOString()
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Network error');
+            }
+
+            console.log('Data saved to server successfully');
+        } catch (error) {
+            console.error('Save to server failed:', error);
+            // Fallback ke localStorage
+            this.saveToStorage();
+        }
+    }
+
+    async loadFromServer() {
+        try {
+            const response = await fetch(`${this.apiUrl}/get-data`);
+            
+            if (response.ok) {
+                const result = await response.json();
+                if (result.data && result.data.length > 0) {
+                    this.playstations = result.data;
+                    this.renderAvailability();
+                    console.log('Data loaded from server successfully');
+                    return;
+                }
+            }
+        } catch (error) {
+            console.error('Load from server failed:', error);
+        }
+        
+        // Fallback ke localStorage jika server gagal
+        this.loadFromStorage();
+    }
+
     startSession(psId) {
         const duration = prompt('Berapa jam sesi gaming? (contoh: 2)', '1');
         
@@ -186,6 +235,9 @@ class PlaystationAvailability {
 
         this.renderAvailability();
         this.showNotification(`${ps.name} dimulai untuk ${duration} jam. Selesai pada ${ps.endTime}`, 'success');
+        
+        // Save ke server dan localStorage
+        this.saveToServer();
         this.saveToStorage();
     }
 
@@ -207,6 +259,9 @@ class PlaystationAvailability {
 
         this.renderAvailability();
         this.showNotification(`${ps.name} sekarang tersedia`, 'success');
+        
+        // Save ke server dan localStorage
+        this.saveToServer();
         this.saveToStorage();
     }
 
@@ -258,6 +313,9 @@ class PlaystationAvailability {
 
             this.renderAvailability();
             this.showNotification(`${ps.name} diperpanjang ${additionalTime} jam. Selesai pada ${ps.endTime}`, 'info');
+            
+            // Save ke server dan localStorage
+            this.saveToServer();
             this.saveToStorage();
             
         } catch (error) {
@@ -307,9 +365,15 @@ class PlaystationAvailability {
     }
 
     startAutoRefresh() {
+        // Check expired sessions
         setInterval(() => {
             this.checkExpiredSessions();
         }, 60000);
+
+        // Sync dari server setiap 30 detik
+        setInterval(() => {
+            this.loadFromServer();
+        }, 30000);
     }
 
     showNotification(message, type = 'info') {
@@ -396,8 +460,11 @@ class PlaystationAvailability {
         });
         
         this.renderAvailability();
-        this.saveToStorage();
         this.showNotification('Semua sesi telah direset', 'warning');
+        
+        // Save ke server dan localStorage
+        this.saveToServer();
+        this.saveToStorage();
     }
 }
 
