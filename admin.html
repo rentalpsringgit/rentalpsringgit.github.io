@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<!-- blueprint CSS framework -->
+	<link href="images/home/icon.JPG" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="js/home/plugin/vendor/bootstrap/css/bootstrap.min.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="js/home/plugin/css/grayscale.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/home.css" />
+	<title>Gunung Ringgit Rental Playstation - Home</title>
+        <style>
+        /* Admin Header Styles */
+        .admin-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+        }
+        
+        .admin-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-title {
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .admin-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+        
+        .logout-btn {
+            background: linear-gradient(135deg, #8B0000, #DC143C);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logout-btn:hover {
+            background: linear-gradient(135deg, #DC143C, #FF4444);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 20, 60, 0.4);
+        }
+        
+        /* Adjust main content for fixed header */
+        body {
+            padding-top: 80px;
+        }
+        
+        #availability {
+            padding-top: 20px;
+        }
+        
+        /* Session info */
+        .session-info {
+            background: rgba(45, 45, 45, 0.8);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .admin-header .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .admin-title {
+                font-size: 1.2rem;
+            }
+            
+            .admin-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            body {
+                padding-top: 120px;
+            }
+        }
+    </style>
+</head>
+<header class="admin-header">
+    <div class="container">
+        <h1 class="admin-title">
+            <i class="fa fa-cogs"></i> Admin Panel PlayStation
+        </h1>
+        <div class="admin-info">
+            <div class="session-info" id="sessionInfo">
+                <i class="fa fa-clock-o"></i> Sesi aktif
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fa fa-sign-out"></i> Logout
+            </button>
+        </div>
+    </div>
+</header>
+<body id="page-top">
+
+<!-- Availability Section -->
+<section id="availability" class="content-section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2>Cek Ketersediaan Playstation</h2>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4">
+                            <div class="card">
+                                <span class="fa fa-4x fa-check"></span><h6 style="margin-bottom: 42px"></h6>                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Playstation 4</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="card">
+                                <span class="fa fa-4x fa-check"></span><h6 style="margin-bottom: 42px"></h6>                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Playstation 4</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="card">
+                                <span class="fa fa-4x fa-check"></span><h6 style="margin-bottom: 42px"></h6>                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Playstation 4</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="card">
+                                <span class="fa fa-4x fa-check"></span><h6 style="margin-bottom: 42px"></h6>                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Playstation 4</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="card">
+                                <span class="fa fa-4x fa-check"></span><h6 style="margin-bottom: 42px"></h6>                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Playstation 4</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="card">
+                                <span class="fa fa-4x fa-check"></span><h6 style="margin-bottom: 42px"></h6>                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Playstation 5</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="card">
+                                <span class="fa fa-4x fa-check"></span><h6 style="margin-bottom: 42px"></h6>                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Playstation 5</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="card">
+                                <span class="fa fa-4x fa-check"></span><h6 style="margin-bottom: 42px"></h6>                               
+                                <div class="card-body">
+                                    <h5 class="card-title">Playstation 5</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="card">
+                                <span class="fa fa-4x fa-check"></span><h6 style="margin-bottom: 42px"></h6>                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Playstation 5</h5>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+          <script type="text/javascript" src="js/home/plugin/js/grayscale.js"></script>
+        <script type="text/javascript" src="js/home/global_home.js"></script>
+        <script type="text/javascript" src="js/home/availble.js"></script>
+        
+<script>
+// Security check
+function checkAuthentication() {
+    const isAuthenticated = sessionStorage.getItem('admin_authenticated');
+    const loginTime = sessionStorage.getItem('login_time');
+    const currentTime = Date.now();
+    const sessionDuration = 60 * 60 * 1000; // 1 hour
+
+    // Check if not authenticated or session expired
+    if (!isAuthenticated || !loginTime || (currentTime - parseInt(loginTime)) > sessionDuration) {
+        alert('Sesi admin telah berakhir. Silakan login kembali.');
+        window.location.href = 'login.html';
+        return false;
+    }
+    return true;
+}
+
+// Logout function
+function logout() {
+    if (confirm('Yakin ingin logout dari admin panel?')) {
+        sessionStorage.removeItem('admin_authenticated');
+        sessionStorage.removeItem('login_time');
+        window.location.href = 'login.html';
+    }
+}
+
+// Check authentication on page load
+if (!checkAuthentication()) {
+    // Will redirect to login if not authenticated
+} else {
+    // Initialize admin panel
+    document.addEventListener('DOMContentLoaded', function() {
+        const availability = new PlaystationAvailability(true); // true untuk admin (show actions)
+        availability.loadFromStorage();
+        availability.renderAvailability();
+        
+        // Add admin panel
+        addAdminPanel(availability);
+        
+        // Auto logout warning
+        setTimeout(() => {
+            alert('Sesi admin akan berakhir dalam 10 menit. Silakan refresh halaman untuk memperpanjang sesi.');
+        }, 50 * 60 * 1000); // 50 minutes
+    });
+}
+
+// Prevent back button after logout
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted && !sessionStorage.getItem('admin_authenticated')) {
+        window.location.href = 'login.html';
+    }
+});
+</script>
+</body>
+</html>
